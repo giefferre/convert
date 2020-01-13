@@ -8,11 +8,16 @@ Written in Python 3 using [Flask](https://flask.palletsprojects.com/).
 
 ### Requirements
 
-TBD
+- Docker engine v. >= 19.03.4
+- Linux / Unix machine w/GNU make installed
 
-### Run
+### Commands
 
-TBD
+To start the application, run:
+
+```bash
+make start
+```
 
 ### Available endpoints
 
@@ -26,7 +31,8 @@ Parameters:
 
 ### Examples
 
-TBD
+The [docs/examples](docs/examples) folder provides REST examples.
+They are meant to be used on [VSCode](https://code.visualstudio.com) [REST Client plugin](https://github.com/Huachao/vscode-restclient).
 
 ## Application structure
 
@@ -38,4 +44,17 @@ The application is structured as follows:
 
 ## Available rate providers
 
-TBD
+- `RandomRateProvider`: returns a random exchange rate, used for development purposes
+
+## Tests
+
+To run tests you will need a local Python 3.7+ environment.
+
+You can run tests by executing:
+
+```bash
+virtualenv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+make tests
+```

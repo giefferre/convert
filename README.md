@@ -45,6 +45,7 @@ The application is structured as follows:
 ## Available rate providers
 
 - `RandomRateProvider`: returns a random exchange rate, used for development purposes
+- `ECBRateProvider`: returns exchange rates from European Central Bank, getting data from the https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml endpoint
 
 ## Tests
 

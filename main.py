@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
-from werkzeug.exceptions import BadRequest
+from werkzeug.exceptions import BadRequest, NotFound
 from converter import Converter, ConverterRequest, ConverterResponse
-from converter.rate_providers import RandomRateProvider
+from converter.rate_providers import ECBRateProvider
+import logging
 
 
 '''
@@ -9,7 +10,7 @@ The following inizialization could happen elsewhere and the dependency converter
 could be passed using dependency injection, using tools such as
 https://pypi.org/project/Flask-Injector/
 '''
-rp = RandomRateProvider()
+rp = ECBRateProvider()
 c = Converter(rp)
 
 app = Flask(__name__)
@@ -24,11 +25,15 @@ def convert():
             request.args.get('reference_date'),
         )
     except Exception as e:
+        app.logger.debug(e)
         raise BadRequest(e)
 
-    res = c.convert(req)
-
-    return jsonify(res.serialize())
+    try:
+        res = c.convert(req)
+        return jsonify(res.serialize())
+    except Exception as e:
+        app.logger.debug(e)
+        raise NotFound(e)
 
 
 if __name__ == '__main__':

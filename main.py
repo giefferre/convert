@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from werkzeug.exceptions import BadRequest, NotFound
 from converter import Converter, ConverterRequest, ConverterResponse
 from converter.rate_providers import ECBRateProvider
-import logging
 
 
 '''

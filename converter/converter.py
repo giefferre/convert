@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
+
 from .request import ConverterRequest
 from .response import ConverterResponse
 from .rate_providers import RateProviderInterface
-from datetime import datetime
 
 
 class Converter(object):
@@ -16,7 +17,8 @@ class Converter(object):
         into the destination currency, returning a ConverterResponse object.
         '''
 
-        multiplier = self._get_multiplier(req.src_currency, req.dest_currency, req.reference_date)
+        multiplier = self._get_multiplier(
+            req.src_currency, req.dest_currency, req.reference_date)
         converted_amount = req.amount * multiplier
 
         return ConverterResponse(converted_amount, req.dest_currency)

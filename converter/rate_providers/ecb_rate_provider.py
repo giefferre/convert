@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from .interface import RateProviderInterface
 from datetime import datetime
 import xml.etree.ElementTree as ET
 import requests
+
+from .interface import RateProviderInterface
 
 
 class ECBRateProvider(RateProviderInterface):

@@ -19,7 +19,7 @@ class TestConverterResponse(unittest.TestCase):
         sut = ConverterResponse(12.3456, "EUR")
         self.assertEqual(12.35, sut.amount)
         self.assertEqual("EUR", sut.currency)
-    
+
     def test_serialize(self):
         sut = ConverterResponse(12.34, "EUR")
         expected_object = {

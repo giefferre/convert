@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from .interface import RateProviderInterface
 from datetime import datetime
 import random
+
+from .interface import RateProviderInterface
 
 
 class RandomRateProvider(RateProviderInterface):

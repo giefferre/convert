@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from datetime import datetime
-from .rate_providers import RateProviderInterface
 from converter import Converter, ConverterRequest, ConverterResponse
+from datetime import datetime
+
+from .rate_providers import RateProviderInterface
 
 
 class TestConverter(unittest.TestCase):
@@ -28,6 +29,7 @@ class TestConverter(unittest.TestCase):
             )
             res = sut.convert(req)
             self.assertEqual(test_case[4].serialize(), res.serialize())
+
 
 class MockRateProvider(RateProviderInterface):
     def get_rate(self, src_currency: str, dest_currency: str, reference_date: datetime) -> float:

@@ -9,7 +9,7 @@ class ConverterResponse(object):
     def _set_amount(self, amount: float):
         if not amount or amount < float(0):
             raise Exception("invalid amount provided %f" % amount)
-        self._amount = amount
+        self._amount = round(amount, 2)
 
     def _set_currency(self, currency_iso_4217: str):
         self._currency = currency_iso_4217

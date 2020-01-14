@@ -16,8 +16,8 @@ class TestConverterResponse(unittest.TestCase):
             self._execute_test_raises(test_case[0], test_case[1])
 
     def test_constructor_completes_successfully(self):
-        sut = ConverterResponse(12.34, "EUR")
-        self.assertEqual(12.34, sut.amount)
+        sut = ConverterResponse(12.3456, "EUR")
+        self.assertEqual(12.35, sut.amount)
         self.assertEqual("EUR", sut.currency)
     
     def test_serialize(self):
